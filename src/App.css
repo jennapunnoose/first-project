@@ -1,38 +1,365 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* ================= Common Section Style ================= */
+.section {
   min-height: 100vh;
+  padding: 80px 10%;
+  background: radial-gradient(circle at top, #1f2937, #020617);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #38bdf8;
+  font-size: 34px;
+}
+
+/* ================= Grid Layout ================= */
+.skills-container,
+.projects-container,
+.education-grid,
+.skills-modern,
+.experience-container,
+.achievements-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ================= Common Cards ================= */
+.card,
+.edu-card,
+.skill-card,
+.exp-card,
+.ach-card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 25px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.card:hover,
+.edu-card:hover,
+.skill-card:hover,
+.exp-card:hover,
+.ach-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: rgba(56, 189, 248, 0.15);
+}
+
+/* ================= Card Text ================= */
+.card h3,
+.edu-content h3,
+.skill-card h3,
+.exp-card h3,
+.ach-card h3 {
+  color: #38bdf8;
+  margin: 15px 0 10px;
+  font-size: 22px;
+}
+
+.card p,
+.edu-content p,
+.skill-card p,
+.exp-card p,
+.ach-card p {
+  color: #d1d5db;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/* ================= Project Images ================= */
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(56, 189, 248, 0.6);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* ================= Project Links ================= */
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.project-links a {
+  text-decoration: none;
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+.project-links a:hover {
+  background: #38bdf8;
+  color: #020617;
+  transform: translateY(-2px);
+}
+
+/* ================= Education Card ================= */
+.edu-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.edu-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(56, 189, 248, 0.6);
+}
+
+.edu-content span {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ================= Modern Skills Card ================= */
+.skill-card {
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+}
+
+/* Glow Animation */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(56, 189, 248, 0.25),
+      transparent);
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Skill Icon */
+.skill-icon {
+  font-size: 50px;
+  color: #38bdf8;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.2);
+}
+
+/* Skill Tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.skill-tags span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #e5e7eb;
+  transition: 0.3s ease-in-out;
+}
+
+.skill-tags span:hover {
+  background: #38bdf8;
+  color: #020617;
+}
+
+/* ================= Contact Section ================= */
+#contact .card {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#contact .card:hover {
+  transform: translateY(-5px);
+  background: rgba(56, 189, 248, 0.15);
+}
+
+/* Contact Buttons */
+.contact-btn {
+  text-decoration: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: 1px solid #38bdf8;
+  transition: 0.3s ease-in-out;
+  display: inline-block;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.contact-btn:hover {
+  background: #38bdf8;
+  color: #020617;
+  transform: translateY(-3px);
+}
+
+/* ================= Footer ================= */
+#contact footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 50px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+  }
+
+  .skills-container,
+  .projects-container,
+  .education-grid,
+  .skills-modern,
+  .experience-container,
+  .achievements-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .edu-card,
+  .skill-card,
+  .exp-card,
+  .ach-card {
+    padding: 20px;
+  }
+
+  .edu-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .edu-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .project-img {
+    height: 200px;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ================= Experience Section ================= */
+#experience {
+  min-height: 100vh;
+  padding: 80px 10%;
+  background: radial-gradient(circle at top, #1f2937, #020617);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.exp-card .role,
+.exp-card .company,
+.exp-card .duration {
+  display: block;
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ================= Achievements Section ================= */
+#achievements {
+  min-height: 50vh;
+  padding: 80px 10%;
+  background: radial-gradient(circle at top, #1f2937, #020617);
+  color: white;
+}
+
+.ach-card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 30px 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: 0.35s ease-in-out;
+  position: relative;
+}
+
+.ach-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(56, 189, 248, 0.15);
+}
+
+/* Icon */
+.ach-icon {
+  font-size: 50px;
+  color: #38bdf8;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ach-card:hover .ach-icon {
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* Card title */
+.ach-card h3 {
+  color: #38bdf8;
+  margin-bottom: 8px;
+}
+
+/* Card subtitle */
+.ach-card p {
+  color: #d1d5db;
+  font-size: 15px;
+  line-height: 1.5;
 }
